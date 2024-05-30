@@ -1,24 +1,23 @@
-import { useEffect } from "react"
-import ToDoItem from "../ToDoItem/ToDoItem"
-import { useState } from "react"
+import { useEffect, useState } from "react";
+import ToDoItem from "../ToDoItem/ToDoItem";
+// import './ToDoList.css'; // Assuming you have a CSS file for ToDoList styles
 
 const ToDoList = () => {
-
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-        // get api to get data
+        // Fetch API to get data
         fetch("http://localhost:8000/todos")
-            .then((res) => {
-                return res.json();
-            })
+            .then((res) => res.json())
             .then((data) => {
-                // when rest api success, save the response to the local state
+                // When REST API is successful, save the response to the local state
                 setTodos(data);
             })
             .catch((err) => {
                 if (err.name === "AbortError") {
                     console.log("fetch aborted");
+                } else {
+                    console.error("Fetch error: ", err);
                 }
             });
     }, []);
@@ -30,17 +29,17 @@ const ToDoList = () => {
                     <div className="col-8">
                         <ul id="todo-list">
                             {todos.map((todo) => (
-                                <>
-                                    <ToDoItem key={todo.id} todo={todo} />
+                                <div key={todo.id}>
+                                    <ToDoItem todo={todo} />
                                     <hr />
-                                </>
+                                </div>
                             ))}
                         </ul>
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default ToDoList
+export default ToDoList;

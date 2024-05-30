@@ -1,19 +1,24 @@
 {
-    "todos": [
-        {
-            "id": 1,
-            "text": "Learn React",
-            "done": true
-        },
-        {
-            "id": 2,
-            "text": "Learn Firebase",
-            "done": false
-        },
-        {
-            "id": 3,
-            "text": "Learn React Native",
-            "done": false
-        }
-    ]
+  "todos": [
+    {
+      "id": "1",
+      "text": "Learn React",
+      "done": true
+    },
+    {
+      "id": "2",
+      "text": "Learn Firebase",
+      "done": false
+    },
+    {
+      "id": "3",
+      "text": "Learn React Native",
+      "done": false
+    },
+    {
+      "id": "2547",
+      "title": "belajar menulis",
+      "done": false
+    }
+  ]
 }
